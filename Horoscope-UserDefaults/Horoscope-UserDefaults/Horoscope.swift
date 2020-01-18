@@ -10,14 +10,7 @@ import Foundation
 
 struct Horoscope: Decodable {
     let sunsign: String
-    let credit: String
     let date: String
     let horoscope: String
-    let meta: meteWrapper
 }
 
-struct meteWrapper: Decodable   {
-    let mood: String
-    let keywords: String
-    let intensity: String
-}
