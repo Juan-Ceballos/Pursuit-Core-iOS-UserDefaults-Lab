@@ -16,6 +16,7 @@ class UserInfoVC: UIViewController {
     let horoscopeOptions = ["", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Capricorn", "Saggatarius", "Aquarius", "Pisces", "Virgo", "Libra", "Scorpio"]
     
     var horoscope: Horoscope?
+    let emptyHoroscope = Horoscope(sunsign: "", date: "", horoscope: "Please Enter User Info")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,13 @@ class UserInfoVC: UIViewController {
             else    {
                 fatalError()
             }
+        
+        if horoscope?.sunsign == "" || horoscope?.sunsign == nil || nameLabel.text == "User Name:" || nameLabel.text == "User Name: " {
+            horoscopeVC.horoscope = emptyHoroscope
+        }
+        else    {
         horoscopeVC.horoscope = horoscope
+        }
     }
     
 }
@@ -90,6 +97,10 @@ extension UserInfoVC: UIPickerViewDelegate  {
                 }
             }
         }
+        else    {
+            horoscope = emptyHoroscope
+        }
+        
     }
     
 }
