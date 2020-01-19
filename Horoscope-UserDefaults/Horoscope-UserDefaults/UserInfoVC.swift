@@ -13,7 +13,7 @@ class UserInfoVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
-    let horoscopeOptions = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Capricorn", "Saggatarius", "Aquarius", "Pisces", "Virgo", "Libra", "Scorpio"]
+    let horoscopeOptions = ["", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Capricorn", "Saggatarius", "Aquarius", "Pisces", "Virgo", "Libra", "Scorpio"]
     
     var horoscope: Horoscope?
     
@@ -71,13 +71,15 @@ extension UserInfoVC: UIPickerViewDelegate  {
         
         let selected = pickerView.selectedRow(inComponent: 0)
         
-        HoroscopeAPI.fetchHoroscope(horoscope: horoscopeOptions[selected].lowercased()) { (result) in
-            switch result   {
-            case .failure(let appError):
-                print(appError)
-            case .success(let horoscope):
-                self.horoscope = horoscope
-                print(horoscope.horoscope)
+        if selected != 0    {
+            HoroscopeAPI.fetchHoroscope(horoscope: horoscopeOptions[selected].lowercased()) { (result) in
+                switch result   {
+                case .failure(let appError):
+                    print(appError)
+                case .success(let horoscope):
+                    self.horoscope = horoscope
+                    print(horoscope.horoscope)
+                }
             }
         }
     }
