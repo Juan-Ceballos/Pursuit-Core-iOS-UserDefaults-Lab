@@ -24,6 +24,14 @@ class UserInfoVC: UIViewController {
         textField.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let horoscopeVC = segue.destination as? HoroscopeVC
+            else    {
+                fatalError()
+            }
+        horoscopeVC.horoscope = horoscope
+    }
+    
 }
 
 
