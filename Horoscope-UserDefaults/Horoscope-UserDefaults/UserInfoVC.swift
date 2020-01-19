@@ -15,6 +15,8 @@ class UserInfoVC: UIViewController {
     
     let horoscopeOptions = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Capricorn", "Saggatarius", "Aquarius", "Pisces", "Virgo", "Libra", "Scorpio"]
     
+    var horoscope: Horoscope?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.dataSource = self
@@ -24,38 +26,14 @@ class UserInfoVC: UIViewController {
     
 }
 
+
 extension UserInfoVC: UITextFieldDelegate   {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         nameLabel.text = "User Name: \(textField.text ?? "")"
-            textField.text = ""
+        textField.text = ""
         return true
     }
-}
-
-//func selectedRow(inComponent: Int) -> Int
-//Returns the index of the selected row in a given component.
-
-//func pickerView(UIPickerView, didSelectRow: Int, inComponent: Int)
-//Called by the picker view when the user selects a row in a component.
-
-extension UserInfoVC: UIPickerViewDataSource    {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        let numberOfHoroscopes = horoscopeOptions.count
-        return numberOfHoroscopes
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //
-    }
-    
-}
-
-extension UserInfoVC: UIPickerViewDelegate  {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = textField.text,
@@ -66,6 +44,20 @@ extension UserInfoVC: UIPickerViewDelegate  {
         let count = textFieldText.count - substringToReplace.count + string.count
         return count <= 9
     }
+}
+
+extension UserInfoVC: UIPickerViewDataSource    {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        let numberOfHoroscopes = horoscopeOptions.count
+        return numberOfHoroscopes
+    }
+}
+
+extension UserInfoVC: UIPickerViewDelegate  {
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 40
@@ -74,6 +66,22 @@ extension UserInfoVC: UIPickerViewDelegate  {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return horoscopeOptions[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        let selected = pickerView.selectedRow(inComponent: 0)
+        
+        HoroscopeAPI.fetchHoroscope(horoscope: horoscopeOptions[selected].lowercased()) { (result) in
+            switch result   {
+            case .failure(let appError):
+                print(appError)
+            case .success(let horoscope):
+                self.horoscope = horoscope
+                print(horoscope.horoscope)
+            }
+        }
+    }
+    
 }
 
 
