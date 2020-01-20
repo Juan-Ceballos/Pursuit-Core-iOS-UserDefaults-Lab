@@ -91,8 +91,8 @@
 			children = (
 				3EEA560523CD02F700E7395D /* AppDelegate.swift */,
 				3EEA560723CD02F700E7395D /* SceneDelegate.swift */,
-				3EEA560923CD02F700E7395D /* UserInfoVC.swift */,
 				3E90604623D5250100E4552F /* UserPreference.swift */,
+				3EEA560923CD02F700E7395D /* UserInfoVC.swift */,
 				3E90604423D4D40900E4552F /* HoroscopeVC.swift */,
 				3EEA560B23CD02F700E7395D /* Main.storyboard */,
 				3EEA562C23CD08BD00E7395D /* Horoscope.swift */,

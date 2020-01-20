@@ -81,6 +81,7 @@ extension UserInfoVC: UIPickerViewDataSource    {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let numberOfHoroscopes = horoscopeOptions.count
+        let numberOfHorscopesEnum = SunSign.allCases.count
         return numberOfHoroscopes
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SunSign: String    {
+enum SunSign: String, CaseIterable    {
     case empty = ""
     case gemini = "Gemini"
     case taurus = "Taurus"
@@ -22,6 +22,8 @@ enum SunSign: String    {
     case libra = "Libra"
     case aquarius = "Aquarius"
     case scorpio = "Scorpio"
+    
+    static let allCases = [empty, gemini, taurus, aries, cancer, saggatarius, pisces, virgo, leo, capricorn, libra, aquarius, scorpio]
 }
 
 struct UserPreferenceKey    {
