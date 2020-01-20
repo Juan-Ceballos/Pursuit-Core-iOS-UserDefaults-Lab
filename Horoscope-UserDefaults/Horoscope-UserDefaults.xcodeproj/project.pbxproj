@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E90604523D4D40900E4552F /* HoroscopeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E90604423D4D40900E4552F /* HoroscopeVC.swift */; };
+		3E90604723D5250100E4552F /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E90604623D5250100E4552F /* UserPreference.swift */; };
 		3EEA560623CD02F700E7395D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEA560523CD02F700E7395D /* AppDelegate.swift */; };
 		3EEA560823CD02F700E7395D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEA560723CD02F700E7395D /* SceneDelegate.swift */; };
 		3EEA560A23CD02F700E7395D /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEA560923CD02F700E7395D /* UserInfoVC.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		3E90604423D4D40900E4552F /* HoroscopeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeVC.swift; sourceTree = "<group>"; };
+		3E90604623D5250100E4552F /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 		3EEA560223CD02F700E7395D /* Horoscope-UserDefaults.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Horoscope-UserDefaults.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EEA560523CD02F700E7395D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EEA560723CD02F700E7395D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				3EEA560B23CD02F700E7395D /* Main.storyboard */,
 				3EEA562C23CD08BD00E7395D /* Horoscope.swift */,
 				3EEA562A23CD08AB00E7395D /* HoroscopeAPI.swift */,
+				3E90604623D5250100E4552F /* UserPreference.swift */,
 				3EEA560E23CD02FC00E7395D /* Assets.xcassets */,
 				3EEA561023CD02FC00E7395D /* LaunchScreen.storyboard */,
 				3EEA561323CD02FC00E7395D /* Info.plist */,
@@ -222,6 +225,7 @@
 				3EEA562B23CD08AB00E7395D /* HoroscopeAPI.swift in Sources */,
 				3EEA560623CD02F700E7395D /* AppDelegate.swift in Sources */,
 				3EEA562D23CD08BD00E7395D /* Horoscope.swift in Sources */,
+				3E90604723D5250100E4552F /* UserPreference.swift in Sources */,
 				3EEA560823CD02F700E7395D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
