@@ -80,9 +80,8 @@ extension UserInfoVC: UIPickerViewDataSource    {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        let numberOfHoroscopes = horoscopeOptions.count
-        let numberOfHorscopesEnum = SunSign.allCases.count
-        return numberOfHoroscopes
+        let numberOfHoroscopesEnum = SunSign.allCases.count
+        return numberOfHoroscopesEnum
     }
 }
 
@@ -93,7 +92,7 @@ extension UserInfoVC: UIPickerViewDelegate  {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return horoscopeOptions[row]
+        return SunSign.allCases[row].rawValue
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -101,7 +100,7 @@ extension UserInfoVC: UIPickerViewDelegate  {
         let selected = pickerView.selectedRow(inComponent: 0)
         
         if selected != 0    {
-            HoroscopeAPI.fetchHoroscope(horoscope: horoscopeOptions[selected].lowercased()) { (result) in
+            HoroscopeAPI.fetchHoroscope(horoscope: SunSign.allCases[selected].rawValue.lowercased()) { (result) in
                 switch result   {
                 case .failure(let appError):
                     print(appError)

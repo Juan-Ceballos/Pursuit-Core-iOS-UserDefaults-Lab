@@ -9,6 +9,7 @@
 import Foundation
 
 enum SunSign: String, CaseIterable    {
+    
     case empty = ""
     case gemini = "Gemini"
     case taurus = "Taurus"
