@@ -18,11 +18,24 @@ class UserInfoVC: UIViewController {
     var horoscope: Horoscope?
     let emptyHoroscope = Horoscope(sunsign: "", date: "", horoscope: "Please Enter User Info")
     
+    var currentHoroscope = SunSign.empty    {
+        didSet  {
+            UserPreference.shared.updateHoroscope(with: horoscope?.sunsign ?? "")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.dataSource = self
         pickerView.delegate = self
         textField.delegate = self
+        updateUI()
+    }
+    
+    func updateUI() {
+        if let horoscopeSaved = UserPreference.shared.getHoroscope()    {
+            currentHoroscope = horoscopeSaved
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,11 +107,13 @@ extension UserInfoVC: UIPickerViewDelegate  {
                 case .success(let horoscope):
                     self.horoscope = horoscope
                     print(horoscope.horoscope)
+                    UserPreference.shared.updateHoroscope(with: horoscope.sunsign)
                 }
             }
         }
         else    {
             horoscope = emptyHoroscope
+            UserPreference.shared.updateHoroscope(with: horoscope?.sunsign ?? "")
         }
         
     }

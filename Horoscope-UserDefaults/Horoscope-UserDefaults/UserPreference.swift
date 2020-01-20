@@ -9,6 +9,7 @@
 import Foundation
 
 enum SunSign: String    {
+    case empty = ""
     case gemini = "Gemini"
     case taurus = "Taurus"
     case aries = "Aries"
@@ -33,6 +34,18 @@ class UserPreference {
     private let standard = UserDefaults.standard
     static let shared = UserPreference()
     
+    func updateHoroscope(with sunsign: String)  {
+        standard.set(sunsign, forKey: UserPreferenceKey.sunSign)
+    }
     
+    func getHoroscope() -> SunSign?   {
+        guard let horoscope = UserDefaults.standard.object(forKey: UserPreferenceKey.sunSign) as? String
+            else    {
+                return nil
+        }
+        
+        return SunSign(rawValue: horoscope)
+        
+    }
     
 }
