@@ -80,13 +80,13 @@ extension UserInfoVC: UIPickerViewDelegate  {
                     print(appError)
                 case .success(let horoscope):
                     self.horoscope = horoscope
-                    UserPreference.shared.updateHoroscope(with: SunSign.allCases[selected])
+                    UserPreference.shared.updateSunSign(with: SunSign.allCases[selected])
                 }
             }
         }
         else    {
             horoscope = emptyHoroscope
-            UserPreference.shared.updateHoroscope(with: SunSign.empty)
+            UserPreference.shared.updateSunSign(with: SunSign.empty)
         }
         
     }
