@@ -68,6 +68,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E90609623D8E07300E4552F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EEA560523CD02F700E7395D /* AppDelegate.swift */,
+				3EEA560723CD02F700E7395D /* SceneDelegate.swift */,
+				3EEA560E23CD02FC00E7395D /* Assets.xcassets */,
+				3EEA560B23CD02F700E7395D /* Main.storyboard */,
+				3EEA561023CD02FC00E7395D /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E90609723D8E0D800E4552F /* Network Services */ = {
+			isa = PBXGroup;
+			children = (
+				3EEA562A23CD08AB00E7395D /* HoroscopeAPI.swift */,
+			);
+			path = "Network Services";
+			sourceTree = "<group>";
+		};
+		3E90609823D8E11800E4552F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3EEA562C23CD08BD00E7395D /* Horoscope.swift */,
+				3E90604623D5250100E4552F /* UserPreference.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3E90609923D8E14600E4552F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3EEA560923CD02F700E7395D /* UserInfoVC.swift */,
+				3E90604423D4D40900E4552F /* HoroscopeVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		3EEA55F923CD02F700E7395D = {
 			isa = PBXGroup;
 			children = (
@@ -89,16 +127,10 @@
 		3EEA560423CD02F700E7395D /* Horoscope-UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				3EEA560523CD02F700E7395D /* AppDelegate.swift */,
-				3EEA560723CD02F700E7395D /* SceneDelegate.swift */,
-				3E90604623D5250100E4552F /* UserPreference.swift */,
-				3EEA560923CD02F700E7395D /* UserInfoVC.swift */,
-				3E90604423D4D40900E4552F /* HoroscopeVC.swift */,
-				3EEA560B23CD02F700E7395D /* Main.storyboard */,
-				3EEA562C23CD08BD00E7395D /* Horoscope.swift */,
-				3EEA562A23CD08AB00E7395D /* HoroscopeAPI.swift */,
-				3EEA560E23CD02FC00E7395D /* Assets.xcassets */,
-				3EEA561023CD02FC00E7395D /* LaunchScreen.storyboard */,
+				3E90609623D8E07300E4552F /* Supporting Files */,
+				3E90609723D8E0D800E4552F /* Network Services */,
+				3E90609923D8E14600E4552F /* Controllers */,
+				3E90609823D8E11800E4552F /* Models */,
 				3EEA561323CD02FC00E7395D /* Info.plist */,
 			);
 			path = "Horoscope-UserDefaults";

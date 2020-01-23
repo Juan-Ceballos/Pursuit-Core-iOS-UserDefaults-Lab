@@ -27,6 +27,8 @@ enum SunSign: String, CaseIterable    {
     static let allCases = [empty, gemini, taurus, aries, cancer, saggatarius, pisces, virgo, leo, capricorn, libra, aquarius, scorpio]
 }
 
+
+
 struct UserPreferenceKey    {
     static let sunSign = "Sun Sign"
 }
@@ -37,9 +39,11 @@ class UserPreference {
     private let standard = UserDefaults.standard
     static let shared = UserPreference()
     
-    func updateHoroscope(with sunsign: String)  {
-        standard.set(sunsign, forKey: UserPreferenceKey.sunSign)
+    // take ie. .libra and store the string Libra in user defaults
+    func updateHoroscope(with sunsign: SunSign)  {
+        standard.set(sunsign.rawValue, forKey: UserPreferenceKey.sunSign)
     }
+    
     
     func getHoroscope() -> SunSign?   {
         guard let horoscope = UserDefaults.standard.object(forKey: UserPreferenceKey.sunSign) as? String

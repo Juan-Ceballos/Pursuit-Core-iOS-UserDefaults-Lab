@@ -18,38 +18,12 @@ class UserInfoVC: UIViewController {
     var horoscope: Horoscope?
     let emptyHoroscope = Horoscope(sunsign: "", date: "", horoscope: "Please Enter User Info")
     
-    var currentHoroscope = SunSign.empty    {
-        didSet  {
-            UserPreference.shared.updateHoroscope(with: horoscope?.sunsign ?? "")
-        }
-    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         pickerView.dataSource = self
         pickerView.delegate = self
         textField.delegate = self
-        updateUI()
-    }
-    
-    func updateUI() {
-        if let horoscopeSaved = UserPreference.shared.getHoroscope()    {
-            currentHoroscope = horoscopeSaved
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let horoscopeVC = segue.destination as? HoroscopeVC
-            else    {
-                fatalError()
-            }
-        
-        if horoscope?.sunsign == "" || horoscope?.sunsign == nil || nameLabel.text == "User Name:" || nameLabel.text == "User Name: " {
-            horoscopeVC.horoscope = emptyHoroscope
-        }
-        else    {
-        horoscopeVC.horoscope = horoscope
-        }
     }
     
 }
@@ -106,14 +80,13 @@ extension UserInfoVC: UIPickerViewDelegate  {
                     print(appError)
                 case .success(let horoscope):
                     self.horoscope = horoscope
-                    print(horoscope.horoscope)
-                    UserPreference.shared.updateHoroscope(with: horoscope.sunsign)
+                    UserPreference.shared.updateHoroscope(with: SunSign.allCases[selected])
                 }
             }
         }
         else    {
             horoscope = emptyHoroscope
-            UserPreference.shared.updateHoroscope(with: horoscope?.sunsign ?? "")
+            UserPreference.shared.updateHoroscope(with: SunSign.empty)
         }
         
     }
