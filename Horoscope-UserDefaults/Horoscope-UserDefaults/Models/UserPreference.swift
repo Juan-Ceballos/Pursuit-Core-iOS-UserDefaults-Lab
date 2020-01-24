@@ -44,6 +44,8 @@ struct UserPreferenceKey    {
     static let name = "Name"
 }
 
+// want to save Horoscope.horoscope string
+
 class UserPreference {
     
     private init()  {}
@@ -52,7 +54,7 @@ class UserPreference {
     
     // take ie. .libra and store the string Libra in user defaults
     func updateSunSign(with sunsign: SunSign)  {
-        standard.set(sunsign, forKey: UserPreferenceKey.sunSign)
+        standard.set(sunsign.rawValue, forKey: UserPreferenceKey.sunSign)
     }
     
     
@@ -65,17 +67,16 @@ class UserPreference {
         return SunSign(rawValue: sunSign)
     }
     
-    func updateHoroscope(with horoscope: HoroscopeText) {
+    func updateHoroscope(with horoscope: String) {
         standard.set(horoscope, forKey: UserPreferenceKey.horoscope)
     }
     
-    func getHoroscope() -> HoroscopeText?   {
+    func getHoroscope() -> String?   {
         guard let horoscope = UserDefaults.standard.object(forKey: UserPreferenceKey.horoscope) as? String
             else    {
                 return nil
         }
-        
-        return HoroscopeText.currentHoroscope(horoscope)
+        return horoscope
     }
     
     func updateName(with name: Name)   {

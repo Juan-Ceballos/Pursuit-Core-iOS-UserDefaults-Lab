@@ -13,8 +13,6 @@ class UserInfoVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
-    let horoscopeOptions = ["", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Capricorn", "Saggatarius", "Aquarius", "Pisces", "Virgo", "Libra", "Scorpio"]
-    
     var horoscope: Horoscope?
     let emptyHoroscope = Horoscope(sunsign: "", date: "", horoscope: "Please Enter User Info")
     
@@ -81,12 +79,14 @@ extension UserInfoVC: UIPickerViewDelegate  {
                 case .success(let horoscope):
                     self.horoscope = horoscope
                     UserPreference.shared.updateSunSign(with: SunSign.allCases[selected])
+                    UserPreference.shared.updateHoroscope(with: horoscope.horoscope)
                 }
             }
         }
         else    {
             horoscope = emptyHoroscope
             UserPreference.shared.updateSunSign(with: SunSign.empty)
+            UserPreference.shared.updateHoroscope(with: emptyHoroscope.horoscope)
         }
         
     }

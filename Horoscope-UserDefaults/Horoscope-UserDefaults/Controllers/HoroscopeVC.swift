@@ -18,13 +18,19 @@ class HoroscopeVC: UIViewController {
     
     var sunSigns = SunSign.empty  {
         didSet  {
+            
             sunSignLabel.text = sunSigns.rawValue
             UserPreference.shared.updateSunSign(with: sunSigns)
         }
     }
     
+    var horoscopes = "Please Enter User Info"   {
+        didSet  {
+            textView.text = horoscopes
+            UserPreference.shared.updateHoroscope(with: horoscopes)
+        }
+    }
     
-    var horoscopes = HoroscopeText.currentHoroscope("")
     
     
     override func viewDidLoad() {
@@ -46,6 +52,6 @@ class HoroscopeVC: UIViewController {
         if let currentHoroscope = UserPreference.shared.getHoroscope()  {
             horoscopes = currentHoroscope
         }
+            
     }
-    
 }
