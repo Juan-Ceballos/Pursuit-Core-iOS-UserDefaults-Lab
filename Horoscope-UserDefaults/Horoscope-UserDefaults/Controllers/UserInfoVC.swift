@@ -22,6 +22,11 @@ class UserInfoVC: UIViewController {
         pickerView.dataSource = self
         pickerView.delegate = self
         textField.delegate = self
+        updateUI()
+    }
+    
+    func updateUI() {
+        //persist when switching vc
     }
     
 }
@@ -30,8 +35,8 @@ class UserInfoVC: UIViewController {
 extension UserInfoVC: UITextFieldDelegate   {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        nameLabel.text = "User Name: \(textField.text ?? "")"
-        UserPreference.shared.updateName(with: "Hi, \(textField.text ?? "")!")
+        UserPreference.shared.updateName(with: textField.text ?? "")
+        nameLabel.text = "User Name: \(UserPreference.shared.getName() ?? "")"
         textField.text = ""
         return true
     }

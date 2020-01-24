@@ -30,7 +30,7 @@ class HoroscopeVC: UIViewController {
     
     var names = ""  {
         didSet  {
-            userNameLabel.text = names
+            userNameLabel.text = "Hi, \(names)!"
             UserPreference.shared.updateName(with: names)
         }
     }
