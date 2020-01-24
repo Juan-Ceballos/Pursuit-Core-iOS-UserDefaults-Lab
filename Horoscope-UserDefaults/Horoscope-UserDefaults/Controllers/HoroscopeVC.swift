@@ -12,13 +12,10 @@ class HoroscopeVC: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sunSignLabel: UILabel!
-    
-    var horoscope: Horoscope?
-    let emptyHoroscope = Horoscope(sunsign: "", date: "", horoscope: "Please Enter User Info")
-    
+    @IBOutlet weak var userNameLabel: UILabel!
+        
     var sunSigns = SunSign.empty  {
         didSet  {
-            
             sunSignLabel.text = sunSigns.rawValue
             UserPreference.shared.updateSunSign(with: sunSigns)
         }
@@ -31,6 +28,12 @@ class HoroscopeVC: UIViewController {
         }
     }
     
+    var names = ""  {
+        didSet  {
+            userNameLabel.text = names
+            UserPreference.shared.updateName(with: names)
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -43,15 +46,29 @@ class HoroscopeVC: UIViewController {
         updateUI()
     }
     
+    
     func updateUI() {
-        //populate textview horoscope and sign
         if let currentSunSign = UserPreference.shared.getSunSign() {
             sunSigns = currentSunSign
+        }
+        else    {
+            sunSignLabel.text = ""
         }
         
         if let currentHoroscope = UserPreference.shared.getHoroscope()  {
             horoscopes = currentHoroscope
         }
-            
+        else    {
+            textView.text = "Please Enter User Info"
+        }
+        
+        if let currentName = UserPreference.shared.getName()    {
+            names = currentName
+        }
+        else    {
+            userNameLabel.text = ""
+        }
+        
     }
+    
 }

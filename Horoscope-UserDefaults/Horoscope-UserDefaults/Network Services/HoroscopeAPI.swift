@@ -20,7 +20,7 @@ class HoroscopeAPI  {
         }
         
         let request = URLRequest(url: url)
-            
+        
         NetworkHelper.shared.performDataTask(with: request) { (result) in
             switch result   {
             case .failure(let appError):
@@ -32,10 +32,10 @@ class HoroscopeAPI  {
                 }
                 catch   {
                     completion(.failure(.decodingError(error)))
-            }
-                
                 }
+                
             }
         }
     }
+}
 

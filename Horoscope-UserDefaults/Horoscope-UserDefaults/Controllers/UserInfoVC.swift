@@ -31,6 +31,7 @@ extension UserInfoVC: UITextFieldDelegate   {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         nameLabel.text = "User Name: \(textField.text ?? "")"
+        UserPreference.shared.updateName(with: "Hi, \(textField.text ?? "")!")
         textField.text = ""
         return true
     }

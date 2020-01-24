@@ -10,7 +10,6 @@ import Foundation
 
 enum SunSign: String, CaseIterable    {
     
-    // tuple of string based on horoscopes
     case empty = ""
     case gemini = "Gemini"
     case taurus = "Taurus"
@@ -44,7 +43,6 @@ struct UserPreferenceKey    {
     static let name = "Name"
 }
 
-// want to save Horoscope.horoscope string
 
 class UserPreference {
     
@@ -52,7 +50,6 @@ class UserPreference {
     private let standard = UserDefaults.standard
     static let shared = UserPreference()
     
-    // take ie. .libra and store the string Libra in user defaults
     func updateSunSign(with sunsign: SunSign)  {
         standard.set(sunsign.rawValue, forKey: UserPreferenceKey.sunSign)
     }
@@ -79,16 +76,16 @@ class UserPreference {
         return horoscope
     }
     
-    func updateName(with name: Name)   {
+    func updateName(with name: String)   {
         standard.set(name, forKey: UserPreferenceKey.name)
     }
     
-    func getName()  -> Name?    {
+    func getName()  -> String?    {
         guard let enteredName = standard.object(forKey: UserPreferenceKey.name) as? String
             else    {
                 return nil
         }
-        return Name.userName(enteredName)
+        return enteredName
     }
     
 }

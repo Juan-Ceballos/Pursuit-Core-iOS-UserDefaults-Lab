@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1tO-kv-r5E">
-                                <rect key="frame" x="0.0" y="166" width="414" height="696"/>
+                                <rect key="frame" x="0.0" y="201" width="414" height="661"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -86,11 +86,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKp-hq-cpZ">
+                                <rect key="frame" x="20" y="166" width="394" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1tO-kv-r5E" firstAttribute="top" secondItem="oum-Lw-hdP" secondAttribute="bottom" constant="8" symbolic="YES" id="Zkg-iz-RXS"/>
+                            <constraint firstItem="vKp-hq-cpZ" firstAttribute="top" secondItem="oum-Lw-hdP" secondAttribute="bottom" constant="8" id="CcN-ff-s9g"/>
+                            <constraint firstItem="vKp-hq-cpZ" firstAttribute="leading" secondItem="PMX-C6-pFI" secondAttribute="leading" constant="20" id="GID-HQ-JJR"/>
+                            <constraint firstItem="1tO-kv-r5E" firstAttribute="top" secondItem="vKp-hq-cpZ" secondAttribute="bottom" constant="11" id="QYe-xu-00u"/>
                             <constraint firstItem="1tO-kv-r5E" firstAttribute="bottom" secondItem="PMX-C6-pFI" secondAttribute="bottom" id="di5-u5-Bhu"/>
+                            <constraint firstItem="PMX-C6-pFI" firstAttribute="trailing" secondItem="vKp-hq-cpZ" secondAttribute="trailing" id="i1b-SK-7Ec"/>
                             <constraint firstItem="1tO-kv-r5E" firstAttribute="trailing" secondItem="PMX-C6-pFI" secondAttribute="trailing" id="lLK-wE-x7D"/>
                             <constraint firstItem="oum-Lw-hdP" firstAttribute="leading" secondItem="PMX-C6-pFI" secondAttribute="leading" constant="20" id="m33-0h-D3m"/>
                             <constraint firstItem="PMX-C6-pFI" firstAttribute="trailing" secondItem="oum-Lw-hdP" secondAttribute="trailing" id="oz0-T6-pKx"/>
@@ -100,7 +109,7 @@
                         <viewLayoutGuide key="safeArea" id="PMX-C6-pFI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Horoscope" id="SHZ-mv-FDm">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="4Uq-ML-dU8">
+                        <barButtonItem key="rightBarButtonItem" id="4Uq-ML-dU8">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0oH-iK-XGx">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -114,11 +123,12 @@
                     <connections>
                         <outlet property="sunSignLabel" destination="oum-Lw-hdP" id="ZU9-NL-Kzo"/>
                         <outlet property="textView" destination="1tO-kv-r5E" id="Kui-Zo-Yl8"/>
+                        <outlet property="userNameLabel" destination="vKp-hq-cpZ" id="K6I-3f-x8m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0BT-Pr-R5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1467" y="-231"/>
+            <point key="canvasLocation" x="1466.6666666666667" y="-231.02678571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="It1-PB-uqp">
