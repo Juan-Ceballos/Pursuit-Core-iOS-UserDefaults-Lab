@@ -35,14 +35,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Sign:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGD-rL-0CV">
+                                <rect key="frame" x="20" y="513.5" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-h5-wsO">
+                                <rect key="frame" x="154.5" y="542.5" width="105" height="30"/>
+                                <state key="normal" title="Reset User Info"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hr5-eP-CYZ" firstAttribute="top" secondItem="qTx-oV-Fbf" secondAttribute="bottom" constant="8" symbolic="YES" id="2Bo-Me-tpa"/>
+                            <constraint firstItem="4fQ-wa-QkU" firstAttribute="trailing" secondItem="mGD-rL-0CV" secondAttribute="trailing" id="5Wv-F0-h7u"/>
                             <constraint firstItem="kFs-N0-fTa" firstAttribute="top" secondItem="4fQ-wa-QkU" secondAttribute="top" constant="64" id="Aqt-hy-eO9"/>
                             <constraint firstItem="hr5-eP-CYZ" firstAttribute="leading" secondItem="4fQ-wa-QkU" secondAttribute="leading" constant="20" id="AxP-OH-M73"/>
+                            <constraint firstItem="Whe-h5-wsO" firstAttribute="top" secondItem="mGD-rL-0CV" secondAttribute="bottom" constant="8" symbolic="YES" id="BAi-fm-MSq"/>
                             <constraint firstItem="qTx-oV-Fbf" firstAttribute="leading" secondItem="4fQ-wa-QkU" secondAttribute="leading" constant="20" id="Cc9-O7-xgs"/>
+                            <constraint firstItem="Whe-h5-wsO" firstAttribute="centerX" secondItem="ovR-hg-s4F" secondAttribute="centerX" id="GFe-Hb-ZsY"/>
                             <constraint firstItem="DYr-tr-Af2" firstAttribute="top" secondItem="kFs-N0-fTa" secondAttribute="bottom" constant="32" id="HKt-Lu-9f1"/>
+                            <constraint firstItem="mGD-rL-0CV" firstAttribute="top" secondItem="hr5-eP-CYZ" secondAttribute="bottom" constant="8" symbolic="YES" id="LJ5-OL-Of7"/>
+                            <constraint firstItem="mGD-rL-0CV" firstAttribute="leading" secondItem="4fQ-wa-QkU" secondAttribute="leading" constant="20" id="Nfh-nf-ktf"/>
                             <constraint firstItem="kFs-N0-fTa" firstAttribute="leading" secondItem="4fQ-wa-QkU" secondAttribute="leading" id="Sqc-Pw-jk3"/>
                             <constraint firstItem="kFs-N0-fTa" firstAttribute="trailing" secondItem="4fQ-wa-QkU" secondAttribute="trailing" id="UIl-TK-AhZ"/>
                             <constraint firstItem="4fQ-wa-QkU" firstAttribute="trailing" secondItem="qTx-oV-Fbf" secondAttribute="trailing" constant="20" id="dDn-qS-nEH"/>

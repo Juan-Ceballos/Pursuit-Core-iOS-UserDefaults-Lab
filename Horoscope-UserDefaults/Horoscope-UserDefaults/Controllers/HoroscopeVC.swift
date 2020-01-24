@@ -13,7 +13,7 @@ class HoroscopeVC: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sunSignLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-        
+    
     var sunSigns = SunSign.empty  {
         didSet  {
             sunSignLabel.text = sunSigns.rawValue
@@ -46,27 +46,28 @@ class HoroscopeVC: UIViewController {
         updateUI()
     }
     
-    
     func updateUI() {
-        if let currentSunSign = UserPreference.shared.getSunSign() {
-            sunSigns = currentSunSign
-        }
-        else    {
-            sunSignLabel.text = ""
+        if let currentSunSign = UserPreference.shared.getSunSign(),
+            let currentHoroscope = UserPreference.shared.getHoroscope(),
+            let currentName = UserPreference.shared.getName()   {
+            
+            if currentName == "" || currentHoroscope == "" || currentSunSign.rawValue == ""  {
+                textView.text = "Please Enter User Info"
+                userNameLabel.text = ""
+                sunSignLabel.text = ""
+            }
+            else    {
+                sunSigns = currentSunSign
+                horoscopes = currentHoroscope
+                names = currentName
+            }
+            
         }
         
-        if let currentHoroscope = UserPreference.shared.getHoroscope()  {
-            horoscopes = currentHoroscope
-        }
         else    {
             textView.text = "Please Enter User Info"
-        }
-        
-        if let currentName = UserPreference.shared.getName()    {
-            names = currentName
-        }
-        else    {
             userNameLabel.text = ""
+            sunSignLabel.text = ""
         }
         
     }

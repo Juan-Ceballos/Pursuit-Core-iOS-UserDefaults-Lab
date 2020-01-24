@@ -88,6 +88,7 @@ extension UserInfoVC: UIPickerViewDelegate  {
             horoscope = emptyHoroscope
             UserPreference.shared.updateSunSign(with: SunSign.empty)
             UserPreference.shared.updateHoroscope(with: emptyHoroscope.horoscope)
+            UserPreference.shared.updateName(with: "")
         }
         
     }
