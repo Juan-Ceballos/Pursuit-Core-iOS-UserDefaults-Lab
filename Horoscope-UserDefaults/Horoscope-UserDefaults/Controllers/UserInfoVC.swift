@@ -27,6 +27,7 @@ class UserInfoVC: UIViewController {
     
     func updateUI() {
         //persist when switching vc
+        nameLabel.text = "User Name: \(UserPreference.shared.getName() ?? "")"
     }
     
 }
