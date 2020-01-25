@@ -12,6 +12,7 @@ class UserInfoVC: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var sunSignLabel: UILabel!
     
     var horoscope: Horoscope?
     let emptyHoroscope = Horoscope(sunsign: "", date: "", horoscope: "Please Enter User Info")
@@ -26,9 +27,22 @@ class UserInfoVC: UIViewController {
     }
     
     func updateUI() {
-        //persist when switching vc
         nameLabel.text = "User Name: \(UserPreference.shared.getName() ?? "")"
+        sunSignLabel.text = "Current Sign: \(UserPreference.shared.getSunSign()?.rawValue ?? "")"
+        pickerView.selectRow(UserPreference.shared.getPickerRowPosition() ?? 0, inComponent: 0, animated: false)
     }
+    
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        UserPreference.shared.updatePickerRowPosition(with: 0)
+        UserPreference.shared.updateName(with: "")
+        UserPreference.shared.updateSunSign(with: SunSign.empty)
+        UserPreference.shared.updateHoroscope(with: emptyHoroscope.horoscope)
+        
+        nameLabel.text = "User Name: \(UserPreference.shared.getName() ?? "")"
+        sunSignLabel.text = "Current Sign: \(UserPreference.shared.getSunSign()?.rawValue ?? "")"
+        pickerView.selectRow(UserPreference.shared.getPickerRowPosition() ?? 0, inComponent: 0, animated: false)
+    }
+    
     
 }
 
@@ -79,14 +93,18 @@ extension UserInfoVC: UIPickerViewDelegate  {
         let selected = pickerView.selectedRow(inComponent: 0)
         
         if selected != 0    {
-            HoroscopeAPI.fetchHoroscope(horoscope: SunSign.allCases[selected].rawValue.lowercased()) { (result) in
+            HoroscopeAPI.fetchHoroscope(horoscope: SunSign.allCases[selected].rawValue.lowercased()) { [weak self] (result) in
                 switch result   {
                 case .failure(let appError):
                     print(appError)
                 case .success(let horoscope):
-                    self.horoscope = horoscope
+                    self?.horoscope = horoscope
                     UserPreference.shared.updateSunSign(with: SunSign.allCases[selected])
                     UserPreference.shared.updateHoroscope(with: horoscope.horoscope)
+                    UserPreference.shared.updatePickerRowPosition(with: selected)
+                    DispatchQueue.main.async {
+                        self?.sunSignLabel.text = "Current Sign: \(UserPreference.shared.getSunSign()?.rawValue ?? "")"
+                    }
                 }
             }
         }
@@ -94,7 +112,7 @@ extension UserInfoVC: UIPickerViewDelegate  {
             horoscope = emptyHoroscope
             UserPreference.shared.updateSunSign(with: SunSign.empty)
             UserPreference.shared.updateHoroscope(with: emptyHoroscope.horoscope)
-            UserPreference.shared.updateName(with: "")
+            sunSignLabel.text = "Current Sign: \(UserPreference.shared.getSunSign()?.rawValue ?? "")"
         }
         
     }

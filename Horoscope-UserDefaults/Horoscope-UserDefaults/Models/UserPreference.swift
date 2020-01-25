@@ -27,20 +27,11 @@ enum SunSign: String, CaseIterable    {
     static let allCases = [empty, gemini, taurus, aries, cancer, saggatarius, pisces, virgo, leo, capricorn, libra, aquarius, scorpio]
 }
 
-enum HoroscopeText  {
-    case empty(String)
-    case currentHoroscope(String)
-}
-
-enum Name   {
-    case empty(String)
-    case userName(String)
-}
-
 struct UserPreferenceKey    {
     static let sunSign = "Sun Sign"
     static let horoscope = "Horoscope"
     static let name = "Name"
+    static let pickerRowPosition = "Picker Row Position"
 }
 
 
@@ -53,7 +44,6 @@ class UserPreference {
     func updateSunSign(with sunsign: SunSign)  {
         standard.set(sunsign.rawValue, forKey: UserPreferenceKey.sunSign)
     }
-    
     
     func getSunSign() -> SunSign?   {
         guard let sunSign = UserDefaults.standard.object(forKey: UserPreferenceKey.sunSign) as? String
@@ -86,6 +76,19 @@ class UserPreference {
                 return nil
         }
         return enteredName
+    }
+    
+    func updatePickerRowPosition(with position: Int)  {
+        standard.set(position, forKey: UserPreferenceKey.pickerRowPosition)
+    }
+    
+    func getPickerRowPosition() -> Int? {
+        guard let selectedPosition = standard.object(forKey: UserPreferenceKey.pickerRowPosition) as? Int
+            else    {
+                return nil
+        }
+        
+        return selectedPosition
     }
     
 }

@@ -44,6 +44,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-h5-wsO">
                                 <rect key="frame" x="154.5" y="542.5" width="105" height="30"/>
                                 <state key="normal" title="Reset User Info"/>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="kgX-wz-dwr" eventType="touchUpInside" id="CJM-5e-xCB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -72,6 +75,7 @@
                     <connections>
                         <outlet property="nameLabel" destination="hr5-eP-CYZ" id="Hot-wr-iWK"/>
                         <outlet property="pickerView" destination="DYr-tr-Af2" id="auW-RS-Iz7"/>
+                        <outlet property="sunSignLabel" destination="mGD-rL-0CV" id="Iam-jN-af3"/>
                         <outlet property="textField" destination="qTx-oV-Fbf" id="JhM-IZ-6Ho"/>
                     </connections>
                 </viewController>
