@@ -13,6 +13,7 @@ class UserInfoVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sunSignLabel: UILabel!
+    @IBOutlet weak var datePickerView: UIDatePicker!
     
     var horoscope: Horoscope?
     let emptyHoroscope = Horoscope(sunsign: "", date: "", horoscope: "Please Enter User Info")
@@ -27,9 +28,13 @@ class UserInfoVC: UIViewController {
     }
     
     func updateUI() {
+        datePickerView.maximumDate = Date()
         nameLabel.text = "User Name: \(UserPreference.shared.getName() ?? "")"
         sunSignLabel.text = "Current Sign: \(UserPreference.shared.getSunSign()?.rawValue ?? "")"
         pickerView.selectRow(UserPreference.shared.getPickerRowPosition() ?? 0, inComponent: 0, animated: false)
+        
+        
+        datePickerView.timeZone = .current
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
@@ -43,6 +48,22 @@ class UserInfoVC: UIViewController {
         pickerView.selectRow(UserPreference.shared.getPickerRowPosition() ?? 0, inComponent: 0, animated: false)
     }
     
+    @IBAction func datePickerChanged(sender: UIDatePicker)  {
+        
+        let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .none
+        print(df.string(from: sender.date))
+    }
+    
+    // 1) starting refactor to prompt for birthday using date picker
+    // 2) don't have to consider year
+    // 3) max date should be current date
+    // _datePicker.maximumDate = [NSDate date];    // _datePicker is a outlet.
+    // datePicker.maximumDate = Date()
+    // 4) connect date with sunsign, see if could stick to persisting sunsign,
+    // where is sunsign decided?
+    // 5) store date?
     
 }
 

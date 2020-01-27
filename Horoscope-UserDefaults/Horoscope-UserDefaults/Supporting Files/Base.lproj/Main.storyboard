@@ -48,6 +48,13 @@
                                     <action selector="resetButtonPressed:" destination="kgX-wz-dwr" eventType="touchUpInside" id="CJM-5e-xCB"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="8W5-OA-Yfk">
+                                <rect key="frame" x="0.0" y="646" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="datePickerChangedWithSender:" destination="kgX-wz-dwr" eventType="valueChanged" id="Als-fZ-41Q"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -73,6 +80,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="User Info" id="GpD-Je-4iS"/>
                     <connections>
+                        <outlet property="datePickerView" destination="8W5-OA-Yfk" id="Imh-hW-QTb"/>
                         <outlet property="nameLabel" destination="hr5-eP-CYZ" id="Hot-wr-iWK"/>
                         <outlet property="pickerView" destination="DYr-tr-Af2" id="auW-RS-Iz7"/>
                         <outlet property="sunSignLabel" destination="mGD-rL-0CV" id="Iam-jN-af3"/>
